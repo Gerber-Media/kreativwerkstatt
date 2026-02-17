@@ -5,7 +5,7 @@
 (function () {
   var translations = {
     de: {
-      'nav.home': 'Startseite',
+      'nav.workshop': 'Werkstatt',
       'nav.about': 'Über uns',
       'nav.contact': 'Kontakt',
       'hero.eyebrow': 'Kreativgården Sydals',
@@ -47,7 +47,7 @@
       'footer.links': 'Links',
       'footer.legal': 'Rechtliches',
       'footer.privacy': 'Datenschutz',
-      'footer.cookies': 'Cookie-Richtlinie',
+      'footer.cookies': 'Cookie- & Speicherrichtlinie',
       'footer.imprint': 'Impressum',
       'footer.rights': 'Alle Rechte vorbehalten.',
       'footer.cvr': 'CVR',
@@ -56,7 +56,7 @@
       'aboutImg.alt': 'Geometrischer Fuchs aus Holzstäbchen'
     },
     en: {
-      'nav.home': 'Home',
+      'nav.workshop': 'Workshop',
       'nav.about': 'About',
       'nav.contact': 'Contact',
       'hero.eyebrow': 'Kreativgården Sydals',
@@ -98,7 +98,7 @@
       'footer.links': 'Links',
       'footer.legal': 'Legal',
       'footer.privacy': 'Privacy Policy',
-      'footer.cookies': 'Cookie Policy',
+      'footer.cookies': 'Cookie & Storage Policy',
       'footer.imprint': 'Imprint',
       'footer.rights': 'All rights reserved.',
       'footer.cvr': 'CVR',
@@ -107,7 +107,7 @@
       'aboutImg.alt': 'Geometric fox made from wooden sticks'
     },
     da: {
-      'nav.home': 'Forside',
+      'nav.workshop': 'Værksted',
       'nav.about': 'Om os',
       'nav.contact': 'Kontakt',
       'hero.eyebrow': 'Kreativgården Sydals',
@@ -149,7 +149,7 @@
       'footer.links': 'Links',
       'footer.legal': 'Juridisk',
       'footer.privacy': 'Privatlivspolitik',
-      'footer.cookies': 'Cookie-politik',
+      'footer.cookies': 'Cookie- & lagringspolitik',
       'footer.imprint': 'Kolofon',
       'footer.rights': 'Alle rettigheder forbeholdes.',
       'footer.cvr': 'CVR',
@@ -159,7 +159,18 @@
     }
   };
 
-  var currentLang = localStorage.getItem('kreativwerkstatt_lang') || 'de';
+  // Detect language: saved preference > browser language > default (de)
+  function detectLang() {
+    var saved = localStorage.getItem('kreativwerkstatt_lang');
+    if (saved && translations[saved]) return saved;
+    var browserLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for (var i = 0; i < browserLangs.length; i++) {
+      var code = browserLangs[i].toLowerCase().split('-')[0];
+      if (translations[code]) return code;
+    }
+    return 'de';
+  }
+  var currentLang = detectLang();
 
   function setLang(lang) {
     if (!translations[lang]) return;
@@ -222,13 +233,27 @@
   // Burger menu
   var burger = document.getElementById('burger');
   var navLinks = document.getElementById('navLinks');
+  function closeMenu() {
+    if (burger && navLinks && burger.classList.contains('open')) {
+      burger.classList.remove('open');
+      navLinks.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  }
   if (burger && navLinks) {
     burger.addEventListener('click', function () {
       var isOpen = !burger.classList.contains('open');
       burger.classList.toggle('open');
       navLinks.classList.toggle('open');
       burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      burger.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+      if (isOpen) {
+        var firstLink = navLinks.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
+    });
+    // Close menu when clicking anchor links
+    navLinks.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
     });
   }
 
@@ -252,6 +277,48 @@
         setTimeout(function () { copyText.textContent = t['share.copy']; }, 2000);
       });
     });
+  }
+
+  // Music Player
+  var playerBtn = document.getElementById('playerBtn');
+  var bgMusic = document.getElementById('bgMusic');
+  if (playerBtn && bgMusic) {
+    var playIcon = playerBtn.querySelector('.kw-player-play');
+    var pauseIcon = playerBtn.querySelector('.kw-player-pause');
+    var eqIcon = playerBtn.querySelector('.kw-player-eq');
+    bgMusic.volume = 0.3;
+
+    var playerLabels = {
+      de: { play: 'Hintergrundmusik abspielen', pause: 'Hintergrundmusik pausieren' },
+      en: { play: 'Play background music', pause: 'Pause background music' },
+      da: { play: 'Afspil baggrundsmusik', pause: 'Pause baggrundsmusik' }
+    };
+
+    function updatePlayerLabel() {
+      var isPlaying = !bgMusic.paused;
+      var labels = playerLabels[currentLang] || playerLabels.de;
+      playerBtn.setAttribute('aria-label', isPlaying ? labels.pause : labels.play);
+      playerBtn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+      playIcon.style.display = isPlaying ? 'none' : 'block';
+      pauseIcon.style.display = 'none';
+      eqIcon.style.display = isPlaying ? 'block' : 'none';
+    }
+
+    playerBtn.addEventListener('click', function () {
+      if (bgMusic.paused) {
+        bgMusic.play().then(updatePlayerLabel).catch(function () {});
+      } else {
+        bgMusic.pause();
+        updatePlayerLabel();
+      }
+    });
+
+    // Update label when language changes
+    var origSetLang = setLang;
+    setLang = function (lang) {
+      origSetLang(lang);
+      updatePlayerLabel();
+    };
   }
 
   // Year

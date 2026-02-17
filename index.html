@@ -30,11 +30,6 @@
   <link rel="icon" href="img/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="img/logo.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 
@@ -95,13 +90,12 @@
   <header class="kw-header" role="banner">
     <div class="kw-container">
       <nav class="kw-nav" aria-label="Hauptnavigation">
-        <a href="https://freilernen.dk" class="kw-logo" target="_blank" rel="noopener noreferrer">
+        <a href="index.html" class="kw-logo">
           <img src="img/logo.png" alt="" class="kw-logo-img" width="36" height="36">
           Kreativgården
         </a>
 
         <div class="kw-nav-right">
-          <!-- Language Switcher -->
           <div class="kw-lang-switcher" role="group" aria-label="Sprache wählen">
             <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
             <button class="kw-lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
@@ -114,11 +108,28 @@
             <span></span>
           </button>
 
-          <div class="kw-nav-links" id="navLinks" role="menu">
-            <a href="https://freilernen.dk" target="_blank" rel="noopener noreferrer" data-i18n="nav.home" role="menuitem">Startseite</a>
-            <a href="https://freilernen.dk/ueber/" target="_blank" rel="noopener noreferrer" data-i18n="nav.about" role="menuitem">Über uns</a>
-            <a href="https://freilernen.dk/kontakt/" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact" role="menuitem">Kontakt</a>
+          <div class="kw-nav-links" id="navLinks">
+            <a href="#details" data-i18n="nav.workshop">Werkstatt</a>
+            <a href="#about" data-i18n="nav.about">Über uns</a>
+            <a href="#contact" data-i18n="nav.contact">Kontakt</a>
           </div>
+
+          <button class="kw-player-btn" id="playerBtn" aria-label="Hintergrundmusik abspielen" aria-pressed="false" role="switch">
+            <svg class="kw-player-icon kw-player-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="kw-player-icon kw-player-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" style="display:none">
+              <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+            </svg>
+            <svg class="kw-player-eq" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="display:none">
+              <rect class="kw-eq-bar" x="4" y="12" width="3" height="8" rx="1" fill="currentColor"/>
+              <rect class="kw-eq-bar" x="10.5" y="8" width="3" height="12" rx="1" fill="currentColor"/>
+              <rect class="kw-eq-bar" x="17" y="10" width="3" height="10" rx="1" fill="currentColor"/>
+            </svg>
+          </button>
+          <audio id="bgMusic" preload="none" loop>
+            <source src="audio/ambient.mp3" type="audio/mpeg">
+          </audio>
         </div>
       </nav>
     </div>
@@ -209,7 +220,7 @@
     </section>
 
     <!-- About -->
-    <section class="kw-section kw-section-alt" aria-labelledby="about-title">
+    <section class="kw-section kw-section-alt" id="about" aria-labelledby="about-title">
       <div class="kw-container">
         <p class="kw-eyebrow" data-i18n="about.eyebrow">Was erwartet dich</p>
         <h2 class="kw-section-title" id="about-title" data-i18n="about.title">Kreatives Gestalten ohne Grenzen</h2>
@@ -274,13 +285,13 @@
         <p class="kw-eyebrow" data-i18n="share.title">Teilen</p>
         <h2 class="kw-section-title" id="share-title" style="margin-bottom: 32px;" data-i18n="share.heading">Erzähl es weiter</h2>
         <div class="kw-share-buttons" role="group" aria-label="Teilen">
-          <a id="shareFacebook" class="kw-share-btn kw-share-facebook" target="_blank" rel="noopener noreferrer" aria-label="Auf Facebook teilen">
+          <a id="shareFacebook" class="kw-share-btn kw-share-facebook" target="_blank" rel="noopener noreferrer" aria-label="Auf Facebook teilen (öffnet in neuem Tab)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
               <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
             <span data-i18n="share.facebook">Facebook</span>
           </a>
-          <a id="shareTelegram" class="kw-share-btn kw-share-telegram" target="_blank" rel="noopener noreferrer" aria-label="Über Telegram teilen">
+          <a id="shareTelegram" class="kw-share-btn kw-share-telegram" target="_blank" rel="noopener noreferrer" aria-label="Über Telegram teilen (öffnet in neuem Tab)">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
             </svg>
@@ -298,14 +309,14 @@
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
             </svg>
-            <span id="copyText" data-i18n="share.copy">Link kopieren</span>
+            <span id="copyText" data-i18n="share.copy" aria-live="polite">Link kopieren</span>
           </button>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="kw-section kw-section-cta" aria-labelledby="cta-title">
+    <section class="kw-section kw-section-cta" id="contact" aria-labelledby="cta-title">
       <div class="kw-container">
         <h2 class="kw-cta-title" id="cta-title" data-i18n="cta.title">Komm vorbei!</h2>
         <p class="kw-cta-text" data-i18n="cta.text">Jeden Mittwoch von 14:30 bis 18:00 Uhr. Keine Anmeldung nötig.</p>

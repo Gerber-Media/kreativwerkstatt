@@ -2,9 +2,61 @@
 // KREATIVWERKSTATT - Legal Pages i18n
 // ============================================
 (function () {
-  var backLabels = { de: 'Zurück zur Startseite', en: 'Back to homepage', da: 'Tilbage til forsiden' };
-  var skipLabels = { de: 'Zum Inhalt springen', en: 'Skip to content', da: 'Gå til indhold' };
-  var currentLang = localStorage.getItem('kreativwerkstatt_lang') || 'de';
+  var t = {
+    de: {
+      skip: 'Zum Inhalt springen',
+      back: 'Zurück zur Startseite',
+      contact: 'Kontakt',
+      links: 'Links',
+      legal: 'Rechtliches',
+      cookies: 'Cookie- & Speicherrichtlinie',
+      imprint: 'Impressum',
+      privacy: 'Datenschutz',
+      rights: 'Alle Rechte vorbehalten.',
+      project: 'Ein Projekt von Kreativgården Sydals',
+      cvr: 'CVR'
+    },
+    en: {
+      skip: 'Skip to content',
+      back: 'Back to homepage',
+      contact: 'Contact',
+      links: 'Links',
+      legal: 'Legal',
+      cookies: 'Cookie & Storage Policy',
+      imprint: 'Imprint',
+      privacy: 'Privacy Policy',
+      rights: 'All rights reserved.',
+      project: 'A project by Kreativgården Sydals',
+      cvr: 'CVR'
+    },
+    da: {
+      skip: 'Gå til indhold',
+      back: 'Tilbage til forsiden',
+      contact: 'Kontakt',
+      links: 'Links',
+      legal: 'Juridisk',
+      cookies: 'Cookie- & lagringspolitik',
+      imprint: 'Kolofon',
+      privacy: 'Privatlivspolitik',
+      rights: 'Alle rettigheder forbeholdes.',
+      project: 'Et projekt af Kreativgården Sydals',
+      cvr: 'CVR'
+    }
+  };
+
+  // Detect language: saved preference > browser language > default (de)
+  var supportedLangs = ['de', 'en', 'da'];
+  function detectLang() {
+    var saved = localStorage.getItem('kreativwerkstatt_lang');
+    if (saved && supportedLangs.indexOf(saved) !== -1) return saved;
+    var browserLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+    for (var i = 0; i < browserLangs.length; i++) {
+      var code = browserLangs[i].toLowerCase().split('-')[0];
+      if (supportedLangs.indexOf(code) !== -1) return code;
+    }
+    return 'de';
+  }
+  var currentLang = detectLang();
 
   function setLang(lang) {
     currentLang = lang;
@@ -12,7 +64,7 @@
     document.documentElement.lang = lang;
 
     // Toggle content articles using hidden attribute
-    ['de', 'en', 'da'].forEach(function (l) {
+    supportedLangs.forEach(function (l) {
       var el = document.getElementById('content-' + l);
       if (el) {
         if (l === lang) {
@@ -30,16 +82,17 @@
       btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // Update back link
-    var backLink = document.querySelector('[data-i18n-back]');
-    if (backLink) {
-      backLink.textContent = backLabels[lang];
-      backLink.setAttribute('aria-label', backLabels[lang]);
-    }
-
     // Update skip link
     var skipLink = document.querySelector('.kw-skip-link');
-    if (skipLink) skipLink.textContent = skipLabels[lang];
+    if (skipLink) skipLink.textContent = t[lang].skip;
+
+    // Update footer i18n elements
+    document.querySelectorAll('[data-legal-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-legal-i18n');
+      if (t[lang][key] !== undefined) {
+        el.textContent = t[lang][key];
+      }
+    });
   }
 
   // Language switcher clicks

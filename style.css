@@ -2,6 +2,36 @@
    Kreativwerkstatt Landing Page
    Design: freilernen.dk style (#cb155e accent)
    ============================================ */
+
+/* ---- Self-hosted Quicksand Font (GDPR) ---- */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/quicksand-400.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/quicksand-500.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/quicksand-600.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/quicksand-700.ttf) format('truetype');
+}
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -43,6 +73,30 @@
   outline-offset: 2px;
 }
 
+/* ---- Screen Reader Only ---- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- External Link Indicator ---- */
+a[target="_blank"]::after {
+  content: " \2197";
+  font-size: 0.75em;
+  vertical-align: super;
+}
+.kw-share-btn[target="_blank"]::after,
+.kw-footer-powered a::after {
+  content: none;
+}
+
 /* ---- Legal Pages ---- */
 .kw-legal-page {
   padding: 64px 0;
@@ -63,7 +117,7 @@
 
 .kw-legal-subtitle {
   font-size: 14px;
-  color: #999;
+  color: #767676;
   margin-bottom: 40px;
 }
 
@@ -209,7 +263,7 @@
   --kw-warm-alt: #ffffff;
   --kw-text: #1a1a1a;
   --kw-text-sec: #6b6b6b;
-  --kw-text-ter: #999999;
+  --kw-text-ter: #767676;
   --kw-border: #e8e5e0;
   --kw-purple: #c3a8d8;
   --kw-yellow: #f5d76e;
@@ -217,7 +271,7 @@
 
   min-height: 100vh;
   background: var(--kw-warm);
-  overflow-x: hidden;
+  overflow-x: clip;
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
   color: var(--kw-text);
   -webkit-font-smoothing: antialiased;
@@ -277,6 +331,62 @@
   gap: 16px;
 }
 
+/* ---- Music Player Button ---- */
+.kw-player-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--kw-text-sec);
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.kw-player-btn:hover {
+  color: var(--kw-accent);
+  background: var(--kw-accent-light);
+}
+
+.kw-player-btn[aria-pressed="true"] {
+  color: var(--kw-accent);
+}
+
+.kw-player-icon,
+.kw-player-eq {
+  display: block;
+}
+
+/* Equalizer animation */
+@keyframes kw-eq-bounce {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.kw-player-btn[aria-pressed="true"] .kw-eq-bar:nth-child(1) {
+  animation: kw-eq-bounce 0.8s ease-in-out infinite;
+  transform-origin: bottom;
+}
+.kw-player-btn[aria-pressed="true"] .kw-eq-bar:nth-child(2) {
+  animation: kw-eq-bounce 0.6s ease-in-out 0.1s infinite;
+  transform-origin: bottom;
+}
+.kw-player-btn[aria-pressed="true"] .kw-eq-bar:nth-child(3) {
+  animation: kw-eq-bounce 0.7s ease-in-out 0.2s infinite;
+  transform-origin: bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kw-player-btn[aria-pressed="true"] .kw-eq-bar {
+    animation: none !important;
+  }
+}
+
 .kw-lang-switcher {
   display: flex;
   border: 1px solid var(--kw-border);
@@ -285,7 +395,7 @@
 }
 
 .kw-lang-btn {
-  padding: 6px 14px;
+  padding: 10px 14px;
   border: none;
   background: transparent;
   color: var(--kw-text-sec);
@@ -957,7 +1067,7 @@
   }
 
   .kw-header {
-    position: relative;
+    position: sticky;
   }
 
   .kw-hero {

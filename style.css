@@ -8,6 +8,134 @@
   box-sizing: border-box;
 }
 
+/* ---- Skip Link (Accessibility) ---- */
+.kw-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: #cb155e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s;
+}
+
+.kw-skip-link:focus {
+  top: 0;
+}
+
+/* ---- Reduced Motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---- Focus Visible (global) ---- */
+:focus-visible {
+  outline: 2px solid #cb155e;
+  outline-offset: 2px;
+}
+
+/* ---- Legal Pages ---- */
+.kw-legal-page {
+  padding: 64px 0;
+  min-height: 60vh;
+}
+
+.kw-legal-content {
+  max-width: 720px;
+}
+
+.kw-legal-content h1 {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.kw-legal-subtitle {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+.kw-legal-content h2 {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.kw-legal-content h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.kw-legal-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6b6b6b;
+  margin-bottom: 16px;
+}
+
+.kw-legal-content ul {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.kw-legal-content li {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6b6b6b;
+  margin-bottom: 8px;
+}
+
+.kw-legal-content a {
+  color: #cb155e;
+  text-decoration: none;
+}
+
+.kw-legal-content a:hover {
+  text-decoration: underline;
+}
+
+.kw-cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 15px;
+}
+
+.kw-cookie-table th,
+.kw-cookie-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e8e5e0;
+}
+
+.kw-cookie-table th {
+  font-weight: 600;
+  color: #1a1a1a;
+  background: #faf8f5;
+}
+
+.kw-cookie-table td {
+  color: #6b6b6b;
+}
+
 .kw-landing {
   --kw-accent: #cb155e;
   --kw-accent-light: #f9e3ed;

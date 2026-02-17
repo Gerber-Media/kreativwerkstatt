@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gerber-media.github.io/kreativwerkstatt/sitemap.xml

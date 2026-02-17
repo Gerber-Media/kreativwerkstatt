@@ -1,47 +1,123 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Offene Kreativwerkstatt — Kreativgården Sydals</title>
-  <meta name="description" content="Offene Kreativwerkstatt in Südddänemark. Farben mischen, Materialien entdecken, Ideen wachsen lassen. Jeden Mittwoch 14:30–18:00 Uhr.">
+  <meta name="description" content="Offene Kreativwerkstatt in Süddänemark. Farben mischen, Materialien entdecken, Ideen wachsen lassen. Jeden Mittwoch 14:30–18:00 Uhr.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Offene Kreativwerkstatt — Kreativgården Sydals">
+  <meta property="og:description" content="Farben mischen, Materialien entdecken, Ideen wachsen lassen. Jeden Mittwoch 14:30–18:00 Uhr in Lysabild, Dänemark.">
+  <meta property="og:image" content="img/workshop-lake.jpg">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="da_DK">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Offene Kreativwerkstatt — Kreativgården Sydals">
+  <meta name="twitter:description" content="Farben mischen, Materialien entdecken, Ideen wachsen lassen. Jeden Mittwoch in Lysabild, Dänemark.">
+  <meta name="twitter:image" content="img/workshop-lake.jpg">
+
+  <!-- SEO -->
+  <meta name="author" content="Kreativgården Sydals">
+  <meta name="theme-color" content="#cb155e">
+  <link rel="canonical" href="https://gerber-media.github.io/kreativwerkstatt/">
+
+  <!-- Favicon -->
   <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Offene Kreativwerkstatt",
+    "description": "Offene Kreativwerkstatt für Kinder und Familien. Farben mischen, Materialien entdecken, Ideen wachsen lassen.",
+    "startDate": "2026-02-18T14:30:00+01:00",
+    "endDate": "2026-02-18T18:00:00+01:00",
+    "eventSchedule": {
+      "@type": "Schedule",
+      "byDay": "https://schema.org/Wednesday",
+      "startTime": "14:30",
+      "endTime": "18:00",
+      "repeatFrequency": "P1W"
+    },
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "location": {
+      "@type": "Place",
+      "name": "Kreativgården Sydals",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nedervej 12",
+        "postalCode": "6470",
+        "addressLocality": "Lysabild",
+        "addressCountry": "DK"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Kreativgården Sydals",
+      "url": "https://www.kreativ.schule",
+      "email": "hallo@kreativ.schule",
+      "telephone": "+4917681928820"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "20",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "isAccessibleForFree": false,
+    "inLanguage": ["de", "en", "da"]
+  }
+  </script>
 </head>
 <body>
+
+<a href="#main-content" class="kw-skip-link">Zum Inhalt springen</a>
 
 <div class="kw-landing" id="app">
 
   <!-- Navigation -->
-  <header class="kw-header">
+  <header class="kw-header" role="banner">
     <div class="kw-container">
-      <nav class="kw-nav">
+      <nav class="kw-nav" aria-label="Hauptnavigation">
         <a href="https://freilernen.dk" class="kw-logo" target="_blank" rel="noopener noreferrer">
-          <img src="img/logo.png" alt="" class="kw-logo-img">
+          <img src="img/logo.png" alt="" class="kw-logo-img" width="36" height="36">
           Kreativgården
         </a>
 
         <div class="kw-nav-right">
           <!-- Language Switcher -->
-          <div class="kw-lang-switcher">
-            <button class="kw-lang-btn active" data-lang="de" aria-label="DE">DE</button>
-            <button class="kw-lang-btn" data-lang="en" aria-label="EN">EN</button>
-            <button class="kw-lang-btn" data-lang="da" aria-label="DA">DA</button>
+          <div class="kw-lang-switcher" role="group" aria-label="Sprache wählen">
+            <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+            <button class="kw-lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+            <button class="kw-lang-btn" data-lang="da" aria-label="Dansk" aria-pressed="false">DA</button>
           </div>
 
-          <button class="kw-burger" aria-label="Menu" id="burger">
+          <button class="kw-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks" id="burger">
             <span></span>
             <span></span>
             <span></span>
           </button>
 
-          <div class="kw-nav-links" id="navLinks">
-            <a href="https://freilernen.dk" target="_blank" rel="noopener noreferrer" data-i18n="nav.home">Startseite</a>
-            <a href="https://freilernen.dk/ueber/" target="_blank" rel="noopener noreferrer" data-i18n="nav.about">Über uns</a>
-            <a href="https://freilernen.dk/kontakt/" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact">Kontakt</a>
+          <div class="kw-nav-links" id="navLinks" role="menu">
+            <a href="https://freilernen.dk" target="_blank" rel="noopener noreferrer" data-i18n="nav.home" role="menuitem">Startseite</a>
+            <a href="https://freilernen.dk/ueber/" target="_blank" rel="noopener noreferrer" data-i18n="nav.about" role="menuitem">Über uns</a>
+            <a href="https://freilernen.dk/kontakt/" target="_blank" rel="noopener noreferrer" data-i18n="nav.contact" role="menuitem">Kontakt</a>
           </div>
         </div>
       </nav>
@@ -49,246 +125,249 @@
   </header>
 
   <!-- Danish language notice -->
-  <div class="kw-lang-notice" id="langNotice" style="display:none;">
+  <div class="kw-lang-notice" id="langNotice" style="display:none;" role="alert">
     <div class="kw-container">
       <p data-i18n="langNote"></p>
     </div>
   </div>
 
-  <!-- Hero -->
-  <section class="kw-hero">
-    <div class="kw-container">
-      <div class="kw-hero-content">
-        <p class="kw-eyebrow" data-i18n="hero.eyebrow">Kreativgården Sydals</p>
-        <h1 class="kw-hero-title">
-          <span data-i18n="hero.title">Offene</span><br>
-          <span class="kw-hero-accent" data-i18n="hero.titleAccent">Kreativwerkstatt</span>
-        </h1>
-        <p class="kw-hero-subtitle" data-i18n="hero.subtitle">Farben mischen, Materialien entdecken, Ideen wachsen lassen.</p>
-        <p class="kw-hero-desc" data-i18n="hero.description">In der Kreativwerkstatt entsteht Raum für Fantasie, Ruhe und eigenes Gestalten. Ohne Vorgaben, aber mit Zeit, Begleitung und vielen Möglichkeiten.</p>
-        <div class="kw-hero-actions">
-          <a href="#details" class="kw-btn kw-btn-primary" data-i18n="hero.cta">Mehr erfahren</a>
-          <a href="https://t.me/+BkaxBXB3HuBhMjM0" class="kw-btn kw-btn-outline" target="_blank" rel="noopener noreferrer">Telegram</a>
-        </div>
-      </div>
-      <div class="kw-hero-visual">
-        <div class="kw-hero-img-wrapper">
-          <img src="img/workshop-lake.jpg" alt="Kreatives Kunstwerk aus der Werkstatt" class="kw-hero-img" id="heroImg">
-        </div>
-        <div class="kw-hero-blob kw-hero-blob-1"></div>
-        <div class="kw-hero-blob kw-hero-blob-2"></div>
-      </div>
-    </div>
-  </section>
+  <main id="main-content">
 
-  <!-- Details -->
-  <section class="kw-section" id="details">
-    <div class="kw-container">
-      <p class="kw-eyebrow" data-i18n="details.eyebrow">Auf einen Blick</p>
-      <h2 class="kw-section-title" data-i18n="details.title">Jeden Mittwoch</h2>
-
-      <div class="kw-details-grid">
-        <div class="kw-detail-card">
-          <div class="kw-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
+    <!-- Hero -->
+    <section class="kw-hero" aria-labelledby="hero-title">
+      <div class="kw-container">
+        <div class="kw-hero-content">
+          <p class="kw-eyebrow" data-i18n="hero.eyebrow">Kreativgården Sydals</p>
+          <h1 class="kw-hero-title" id="hero-title">
+            <span data-i18n="hero.title">Offene</span><br>
+            <span class="kw-hero-accent" data-i18n="hero.titleAccent">Kreativwerkstatt</span>
+          </h1>
+          <p class="kw-hero-subtitle" data-i18n="hero.subtitle">Farben mischen, Materialien entdecken, Ideen wachsen lassen.</p>
+          <p class="kw-hero-desc" data-i18n="hero.description">In der Kreativwerkstatt entsteht Raum für Fantasie, Ruhe und eigenes Gestalten. Ohne Vorgaben, aber mit Zeit, Begleitung und vielen Möglichkeiten.</p>
+          <div class="kw-hero-actions">
+            <a href="#details" class="kw-btn kw-btn-primary" data-i18n="hero.cta">Mehr erfahren</a>
+            <a href="https://t.me/+BkaxBXB3HuBhMjM0" class="kw-btn kw-btn-outline" target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
-          <h3 class="kw-detail-label" data-i18n="details.when">Wann</h3>
-          <p class="kw-detail-value" data-i18n="details.whenValue">Jeden Mittwoch
+        </div>
+        <div class="kw-hero-visual" aria-hidden="true">
+          <div class="kw-hero-img-wrapper">
+            <img src="img/workshop-lake.jpg" alt="Kreatives Kunstwerk aus der Werkstatt" class="kw-hero-img" id="heroImg" width="300" height="300" loading="eager">
+          </div>
+          <div class="kw-hero-blob kw-hero-blob-1"></div>
+          <div class="kw-hero-blob kw-hero-blob-2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details -->
+    <section class="kw-section" id="details" aria-labelledby="details-title">
+      <div class="kw-container">
+        <p class="kw-eyebrow" data-i18n="details.eyebrow">Auf einen Blick</p>
+        <h2 class="kw-section-title" id="details-title" data-i18n="details.title">Jeden Mittwoch</h2>
+
+        <div class="kw-details-grid" role="list">
+          <div class="kw-detail-card" role="listitem">
+            <div class="kw-detail-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3 class="kw-detail-label" data-i18n="details.when">Wann</h3>
+            <p class="kw-detail-value" data-i18n="details.whenValue">Jeden Mittwoch
 14:30 – 18:00 Uhr</p>
-        </div>
-
-        <div class="kw-detail-card">
-          <div class="kw-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
           </div>
-          <h3 class="kw-detail-label" data-i18n="details.where">Wo</h3>
-          <p class="kw-detail-value" data-i18n="details.whereValue">Nedervej 12
+
+          <div class="kw-detail-card" role="listitem">
+            <div class="kw-detail-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3 class="kw-detail-label" data-i18n="details.where">Wo</h3>
+            <p class="kw-detail-value" data-i18n="details.whereValue">Nedervej 12
 6470 Lysabild, Dänemark</p>
+          </div>
+
+          <div class="kw-detail-card" role="listitem">
+            <div class="kw-detail-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="kw-detail-label" data-i18n="details.cost">Beitrag</h3>
+            <p class="kw-detail-value" data-i18n="details.costValue">20 € / 150 DKK</p>
+          </div>
         </div>
 
-        <div class="kw-detail-card">
-          <div class="kw-detail-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23"/>
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        <div class="kw-details-note" role="note">
+          <p data-i18n="details.note">Offene Werkstatt – ohne Anmeldung, solange Plätze frei sind.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="kw-section kw-section-alt" aria-labelledby="about-title">
+      <div class="kw-container">
+        <p class="kw-eyebrow" data-i18n="about.eyebrow">Was erwartet dich</p>
+        <h2 class="kw-section-title" id="about-title" data-i18n="about.title">Kreatives Gestalten ohne Grenzen</h2>
+
+        <div class="kw-about-content">
+          <div class="kw-about-text">
+            <p data-i18n="about.text1">Die Kreativwerkstatt ist ein offener Raum für Kinder und Familien. Hier kannst du mit verschiedenen Materialien experimentieren – von Farben und Papier über Ton bis hin zu Naturmaterialien.</p>
+            <p data-i18n="about.text2">Es gibt keine festen Vorgaben und keinen Leistungsdruck. Stattdessen begleiten wir dich bei deinen eigenen Ideen und Projekten. Jede Woche stehen neue Materialien und Inspirationen bereit.</p>
+            <p data-i18n="about.text3">Kreativgården Sydals ist ein Ort für freies und kreatives Lernen in Süddänemark – ein Projekt von Familien für Familien.</p>
+          </div>
+          <div class="kw-about-visual">
+            <div class="kw-about-img-wrapper">
+              <img src="img/workshop-fox.jpg" alt="Geometrischer Fuchs aus Holzstäbchen" class="kw-about-img" id="aboutImg" width="480" height="360" loading="lazy">
+            </div>
+            <ul class="kw-about-highlights" aria-label="Highlights">
+              <li class="kw-highlight">
+                <span class="kw-highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                  </svg>
+                </span>
+                <span data-i18n="about.highlight1">Verschiedene Materialien</span>
+              </li>
+              <li class="kw-highlight">
+                <span class="kw-highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </span>
+                <span data-i18n="about.highlight2">Für Kinder & Familien</span>
+              </li>
+              <li class="kw-highlight">
+                <span class="kw-highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </span>
+                <span data-i18n="about.highlight3">Ohne Vorgaben</span>
+              </li>
+              <li class="kw-highlight">
+                <span class="kw-highlight-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                  </svg>
+                </span>
+                <span data-i18n="about.highlight4">Jede Woche neu</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Share -->
+    <section class="kw-section kw-section-share" aria-labelledby="share-title">
+      <div class="kw-container">
+        <p class="kw-eyebrow" data-i18n="share.title">Teilen</p>
+        <h2 class="kw-section-title" id="share-title" style="margin-bottom: 32px;" data-i18n="share.heading">Erzähl es weiter</h2>
+        <div class="kw-share-buttons" role="group" aria-label="Teilen">
+          <a id="shareFacebook" class="kw-share-btn kw-share-facebook" target="_blank" rel="noopener noreferrer" aria-label="Auf Facebook teilen">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
             </svg>
-          </div>
-          <h3 class="kw-detail-label" data-i18n="details.cost">Beitrag</h3>
-          <p class="kw-detail-value" data-i18n="details.costValue">20 € / 150 DKK</p>
+            <span data-i18n="share.facebook">Facebook</span>
+          </a>
+          <a id="shareTelegram" class="kw-share-btn kw-share-telegram" target="_blank" rel="noopener noreferrer" aria-label="Über Telegram teilen">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            <span data-i18n="share.telegram">Telegram</span>
+          </a>
+          <a id="shareEmail" class="kw-share-btn kw-share-email" aria-label="Per E-Mail teilen">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span data-i18n="share.email">E-Mail</span>
+          </a>
+          <button class="kw-share-btn kw-share-copy" id="copyLink" aria-label="Link in die Zwischenablage kopieren">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" id="copyIcon" aria-hidden="true" focusable="false">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span id="copyText" data-i18n="share.copy">Link kopieren</span>
+          </button>
         </div>
       </div>
+    </section>
 
-      <div class="kw-details-note">
-        <p data-i18n="details.note">Offene Werkstatt – ohne Anmeldung, solange Plätze frei sind.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="kw-section kw-section-alt">
-    <div class="kw-container">
-      <p class="kw-eyebrow" data-i18n="about.eyebrow">Was erwartet dich</p>
-      <h2 class="kw-section-title" data-i18n="about.title">Kreatives Gestalten ohne Grenzen</h2>
-
-      <div class="kw-about-content">
-        <div class="kw-about-text">
-          <p data-i18n="about.text1">Die Kreativwerkstatt ist ein offener Raum für Kinder und Familien. Hier kannst du mit verschiedenen Materialien experimentieren – von Farben und Papier über Ton bis hin zu Naturmaterialien.</p>
-          <p data-i18n="about.text2">Es gibt keine festen Vorgaben und keinen Leistungsdruck. Stattdessen begleiten wir dich bei deinen eigenen Ideen und Projekten. Jede Woche stehen neue Materialien und Inspirationen bereit.</p>
-          <p data-i18n="about.text3">Kreativgården Sydals ist ein Ort für freies und kreatives Lernen in Süddänemark – ein Projekt von Familien für Familien.</p>
-        </div>
-        <div class="kw-about-visual">
-          <div class="kw-about-img-wrapper">
-            <img src="img/workshop-fox.jpg" alt="Geometrischer Fuchs aus Holzstäbchen" class="kw-about-img" id="aboutImg">
-          </div>
-          <div class="kw-about-highlights">
-            <div class="kw-highlight">
-              <span class="kw-highlight-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5"/>
-                  <path d="M2 12l10 5 10-5"/>
-                </svg>
-              </span>
-              <span data-i18n="about.highlight1">Verschiedene Materialien</span>
-            </div>
-            <div class="kw-highlight">
-              <span class="kw-highlight-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </span>
-              <span data-i18n="about.highlight2">Für Kinder & Familien</span>
-            </div>
-            <div class="kw-highlight">
-              <span class="kw-highlight-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                </svg>
-              </span>
-              <span data-i18n="about.highlight3">Ohne Vorgaben</span>
-            </div>
-            <div class="kw-highlight">
-              <span class="kw-highlight-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              </span>
-              <span data-i18n="about.highlight4">Jede Woche neu</span>
-            </div>
-          </div>
+    <!-- CTA -->
+    <section class="kw-section kw-section-cta" aria-labelledby="cta-title">
+      <div class="kw-container">
+        <h2 class="kw-cta-title" id="cta-title" data-i18n="cta.title">Komm vorbei!</h2>
+        <p class="kw-cta-text" data-i18n="cta.text">Jeden Mittwoch von 14:30 bis 18:00 Uhr. Keine Anmeldung nötig.</p>
+        <div class="kw-cta-actions">
+          <a href="mailto:hallo@kreativ.schule" class="kw-btn kw-btn-primary-inv" data-i18n="cta.button">Kontakt aufnehmen</a>
+          <a href="https://t.me/+BkaxBXB3HuBhMjM0" class="kw-btn kw-btn-outline-inv" target="_blank" rel="noopener noreferrer">Telegram</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Share -->
-  <section class="kw-section kw-section-share">
-    <div class="kw-container">
-      <p class="kw-eyebrow" data-i18n="share.title">Teilen</p>
-      <h2 class="kw-section-title" style="margin-bottom: 32px;" data-i18n="share.heading">Erzähl es weiter</h2>
-      <div class="kw-share-buttons">
-        <a id="shareFacebook" class="kw-share-btn kw-share-facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          <span data-i18n="share.facebook">Facebook</span>
-        </a>
-        <a id="shareTelegram" class="kw-share-btn kw-share-telegram" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-          </svg>
-          <span data-i18n="share.telegram">Telegram</span>
-        </a>
-        <a id="shareEmail" class="kw-share-btn kw-share-email" aria-label="E-Mail">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-            <polyline points="22,6 12,13 2,6"/>
-          </svg>
-          <span data-i18n="share.email">E-Mail</span>
-        </a>
-        <button class="kw-share-btn kw-share-copy" id="copyLink" aria-label="Link kopieren">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" id="copyIcon">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-          </svg>
-          <span id="copyText" data-i18n="share.copy">Link kopieren</span>
-        </button>
+    <!-- Map -->
+    <section class="kw-map" aria-label="Standort auf der Karte">
+      <div class="kw-container">
+        <div class="kw-map-embed">
+          <iframe
+            title="Kreativgården Sydals — Nedervej 12, 6470 Lysabild, Dänemark"
+            src="https://maps.google.com/maps?q=Nedervej+12,+6470+Lysabild,+Denmark&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="300"
+            style="border:0;border-radius:8px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="kw-section kw-section-cta">
-    <div class="kw-container">
-      <h2 class="kw-cta-title" data-i18n="cta.title">Komm vorbei!</h2>
-      <p class="kw-cta-text" data-i18n="cta.text">Jeden Mittwoch von 14:30 bis 18:00 Uhr. Keine Anmeldung nötig.</p>
-      <div class="kw-cta-actions">
-        <a href="mailto:hallo@kreativ.schule" class="kw-btn kw-btn-primary-inv" data-i18n="cta.button">Kontakt aufnehmen</a>
-        <a href="https://t.me/+BkaxBXB3HuBhMjM0" class="kw-btn kw-btn-outline-inv" target="_blank" rel="noopener noreferrer">Telegram</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Map -->
-  <section class="kw-map">
-    <div class="kw-container">
-      <div class="kw-map-embed">
-        <iframe
-          title="Kreativgården Sydals"
-          src="https://maps.google.com/maps?q=Nedervej+12,+6470+Lysabild,+Denmark&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          width="100%"
-          height="300"
-          style="border:0;border-radius:8px;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- Footer -->
-  <footer class="kw-footer">
+  <footer class="kw-footer" role="contentinfo">
     <div class="kw-container">
       <div class="kw-footer-grid">
         <div class="kw-footer-brand">
           <span class="kw-logo">
-            <img src="img/logo.png" alt="" class="kw-logo-img">
+            <img src="img/logo.png" alt="" class="kw-logo-img" width="36" height="36">
             Kreativgården
           </span>
           <p data-i18n="footer.project">Ein Projekt von Kreativgården Sydals</p>
           <p class="kw-footer-cvr"><span data-i18n="footer.cvr">CVR</span>: 46109562</p>
         </div>
 
-        <div class="kw-footer-col">
+        <nav class="kw-footer-col" aria-label="Kontakt">
           <p class="kw-footer-heading" data-i18n="footer.contact">Kontakt</p>
           <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a>
           <a href="https://t.me/+BkaxBXB3HuBhMjM0" target="_blank" rel="noopener noreferrer">Telegram</a>
           <a href="https://maps.google.com/?q=Nedervej+12,+6470+Lysabild,+Denmark" target="_blank" rel="noopener noreferrer">Nedervej 12, 6470 Lysabild</a>
-        </div>
+        </nav>
 
-        <div class="kw-footer-col">
+        <nav class="kw-footer-col" aria-label="Links">
           <p class="kw-footer-heading" data-i18n="footer.links">Links</p>
           <a href="https://freilernen.dk" target="_blank" rel="noopener noreferrer">freilernen.dk</a>
           <a href="https://www.kreativ.schule" target="_blank" rel="noopener noreferrer">kreativ.schule</a>
-        </div>
+        </nav>
 
-        <div class="kw-footer-col">
+        <nav class="kw-footer-col" aria-label="Rechtliches">
           <p class="kw-footer-heading" data-i18n="footer.legal">Rechtliches</p>
-          <a href="https://freilernen.dk/privatlivspolitik/" target="_blank" rel="noopener noreferrer" data-i18n="footer.privacyLink">Privatlivspolitik (DK)</a>
-          <a href="https://freilernen.dk/cookies/" target="_blank" rel="noopener noreferrer" data-i18n="footer.cookies">Cookie-Politik</a>
+          <a href="cookies.html" data-i18n="footer.cookies">Cookie-Richtlinie</a>
           <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
           <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
-        </div>
+        </nav>
       </div>
 
       <div class="kw-footer-bottom">

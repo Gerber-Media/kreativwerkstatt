@@ -47,8 +47,7 @@
       'footer.links': 'Links',
       'footer.legal': 'Rechtliches',
       'footer.privacy': 'Datenschutz',
-      'footer.privacyLink': 'Privatlivspolitik (DK)',
-      'footer.cookies': 'Cookie-Politik',
+      'footer.cookies': 'Cookie-Richtlinie',
       'footer.imprint': 'Impressum',
       'footer.rights': 'Alle Rechte vorbehalten.',
       'footer.cvr': 'CVR',
@@ -99,7 +98,6 @@
       'footer.links': 'Links',
       'footer.legal': 'Legal',
       'footer.privacy': 'Privacy Policy',
-      'footer.privacyLink': 'Privacy Policy (DK)',
       'footer.cookies': 'Cookie Policy',
       'footer.imprint': 'Imprint',
       'footer.rights': 'All rights reserved.',
@@ -151,7 +149,6 @@
       'footer.links': 'Links',
       'footer.legal': 'Juridisk',
       'footer.privacy': 'Privatlivspolitik',
-      'footer.privacyLink': 'Privatlivspolitik (DK)',
       'footer.cookies': 'Cookie-politik',
       'footer.imprint': 'Kolofon',
       'footer.rights': 'Alle rettigheder forbeholdes.',
@@ -184,9 +181,11 @@
     if (heroImg) heroImg.alt = translations[lang]['heroImg.alt'];
     if (aboutImg) aboutImg.alt = translations[lang]['aboutImg.alt'];
 
-    // Update language switcher
+    // Update language switcher (with aria-pressed)
     document.querySelectorAll('.kw-lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      var isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
     // Danish notice
@@ -225,8 +224,11 @@
   var navLinks = document.getElementById('navLinks');
   if (burger && navLinks) {
     burger.addEventListener('click', function () {
+      var isOpen = !burger.classList.contains('open');
       burger.classList.toggle('open');
       navLinks.classList.toggle('open');
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      burger.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
     });
   }
 

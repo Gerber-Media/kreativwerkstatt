@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gerber-media.github.io/kreativwerkstatt/sitemap.xml
+Sitemap: https://basteln.kreativ.schule/sitemap.xml

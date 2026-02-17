@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impressum — Kreativgården Sydals</title>
   <meta name="description" content="Impressum und Angaben gemäß dänischem Recht für Kreativgården Sydals.">
   <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#cb155e">
   <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,28 +16,29 @@
 </head>
 <body>
 
+<a href="#main-content" class="kw-skip-link">Zum Inhalt springen</a>
+
 <div class="kw-landing">
 
-  <!-- Navigation -->
-  <header class="kw-header">
+  <header class="kw-header" role="banner">
     <div class="kw-container">
       <nav class="kw-nav" aria-label="Hauptnavigation">
         <a href="index.html" class="kw-logo">
-          <img src="img/logo.png" alt="" class="kw-logo-img">
+          <img src="img/logo.png" alt="" class="kw-logo-img" width="36" height="36">
           Kreativgården
         </a>
         <div class="kw-nav-right">
           <div class="kw-lang-switcher" role="group" aria-label="Sprache wählen">
-            <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
-            <button class="kw-lang-btn" data-lang="en" aria-label="English">EN</button>
-            <button class="kw-lang-btn" data-lang="da" aria-label="Dansk">DA</button>
+            <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+            <button class="kw-lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+            <button class="kw-lang-btn" data-lang="da" aria-label="Dansk" aria-pressed="false">DA</button>
           </div>
         </div>
       </nav>
     </div>
   </header>
 
-  <main class="kw-legal-page">
+  <main id="main-content" class="kw-legal-page">
     <div class="kw-container">
 
       <!-- DE -->
@@ -44,12 +47,12 @@
         <p class="kw-legal-subtitle">Angaben gemäß dänischem Recht</p>
 
         <h2>Verantwortlich</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12<br>
           6470 Lysabild, Dänemark
-        </p>
+        </address>
         <p>
           CVR: 46109562<br>
           E-Mail: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
@@ -70,17 +73,17 @@
       </article>
 
       <!-- EN -->
-      <article class="kw-legal-content" id="content-en" lang="en" style="display:none;">
+      <article class="kw-legal-content" id="content-en" lang="en" hidden>
         <h1>Imprint</h1>
         <p class="kw-legal-subtitle">Information pursuant to Danish law</p>
 
         <h2>Responsible</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12<br>
           6470 Lysabild, Denmark
-        </p>
+        </address>
         <p>
           CVR: 46109562<br>
           Email: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
@@ -101,17 +104,17 @@
       </article>
 
       <!-- DA -->
-      <article class="kw-legal-content" id="content-da" lang="da" style="display:none;">
+      <article class="kw-legal-content" id="content-da" lang="da" hidden>
         <h1>Kolofon</h1>
         <p class="kw-legal-subtitle">Oplysninger i henhold til dansk lovgivning</p>
 
         <h2>Ansvarlig</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12<br>
           6470 Lysabild, Danmark
-        </p>
+        </address>
         <p>
           CVR: 46109562<br>
           E-mail: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
@@ -134,46 +137,17 @@
     </div>
   </main>
 
-  <!-- Footer (simplified) -->
-  <footer class="kw-footer">
+  <footer class="kw-footer" role="contentinfo">
     <div class="kw-container">
       <div class="kw-footer-bottom">
         <p>&copy; <span class="js-year"></span> Kreativgården Sydals.</p>
-        <p><a href="index.html" data-i18n-back>Zurück zur Startseite</a></p>
+        <p><a href="index.html" data-i18n-back aria-label="Zurück zur Startseite">Zurück zur Startseite</a></p>
       </div>
     </div>
   </footer>
 
 </div>
 
-<script>
-(function () {
-  var backLabels = { de: 'Zurück zur Startseite', en: 'Back to homepage', da: 'Tilbage til forsiden' };
-  var currentLang = localStorage.getItem('kreativwerkstatt_lang') || 'de';
-
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('kreativwerkstatt_lang', lang);
-    document.documentElement.lang = lang;
-    ['de', 'en', 'da'].forEach(function (l) {
-      var el = document.getElementById('content-' + l);
-      if (el) el.style.display = l === lang ? '' : 'none';
-    });
-    document.querySelectorAll('.kw-lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    var backLink = document.querySelector('[data-i18n-back]');
-    if (backLink) backLink.textContent = backLabels[lang];
-  }
-
-  document.querySelectorAll('.kw-lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { setLang(this.getAttribute('data-lang')); });
-  });
-
-  document.querySelectorAll('.js-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-
-  setLang(currentLang);
-})();
-</script>
+<script src="legal.js"></script>
 </body>
 </html>

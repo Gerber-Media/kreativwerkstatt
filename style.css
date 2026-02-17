@@ -136,6 +136,71 @@
   color: #6b6b6b;
 }
 
+.kw-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0;
+}
+
+.kw-table-wrap .kw-cookie-table {
+  margin: 0;
+  min-width: 400px;
+}
+
+.kw-address {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6b6b6b;
+  margin-bottom: 16px;
+}
+
+.kw-address a {
+  color: #cb155e;
+  text-decoration: none;
+}
+
+.kw-address a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .kw-legal-page {
+    padding: 40px 0;
+  }
+
+  .kw-legal-content h1 {
+    font-size: 28px;
+  }
+
+  .kw-legal-content h2 {
+    font-size: 19px;
+    margin-top: 32px;
+  }
+
+  .kw-legal-content h3 {
+    font-size: 16px;
+  }
+
+  .kw-legal-content p,
+  .kw-legal-content li,
+  .kw-address {
+    font-size: 15px;
+  }
+
+  .kw-cookie-table th,
+  .kw-cookie-table td {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .kw-footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
 .kw-landing {
   --kw-accent: #cb155e;
   --kw-accent-light: #f9e3ed;

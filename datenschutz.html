@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutz — Kreativgården Sydals</title>
   <meta name="description" content="Datenschutzerklärung der Kreativgården Sydals gemäß DSGVO / GDPR.">
   <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#cb155e">
   <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,28 +16,29 @@
 </head>
 <body>
 
+<a href="#main-content" class="kw-skip-link">Zum Inhalt springen</a>
+
 <div class="kw-landing">
 
-  <!-- Navigation -->
-  <header class="kw-header">
+  <header class="kw-header" role="banner">
     <div class="kw-container">
       <nav class="kw-nav" aria-label="Hauptnavigation">
         <a href="index.html" class="kw-logo">
-          <img src="img/logo.png" alt="" class="kw-logo-img">
+          <img src="img/logo.png" alt="" class="kw-logo-img" width="36" height="36">
           Kreativgården
         </a>
         <div class="kw-nav-right">
           <div class="kw-lang-switcher" role="group" aria-label="Sprache wählen">
-            <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
-            <button class="kw-lang-btn" data-lang="en" aria-label="English">EN</button>
-            <button class="kw-lang-btn" data-lang="da" aria-label="Dansk">DA</button>
+            <button class="kw-lang-btn active" data-lang="de" aria-label="Deutsch" aria-pressed="true">DE</button>
+            <button class="kw-lang-btn" data-lang="en" aria-label="English" aria-pressed="false">EN</button>
+            <button class="kw-lang-btn" data-lang="da" aria-label="Dansk" aria-pressed="false">DA</button>
           </div>
         </div>
       </nav>
     </div>
   </header>
 
-  <main class="kw-legal-page">
+  <main id="main-content" class="kw-legal-page">
     <div class="kw-container">
 
       <!-- DE -->
@@ -44,11 +47,13 @@
         <p class="kw-legal-subtitle">Stand: Februar 2026</p>
 
         <h2>1. Verantwortlicher</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12, 6470 Lysabild, Dänemark<br>
-          CVR: 46109562<br>
+          CVR: 46109562
+        </address>
+        <p>
           E-Mail: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
           Telefon: <a href="tel:+4917681928820">+49 176 81928820</a>
         </p>
@@ -109,26 +114,28 @@
 
         <h2>10. Beschwerderecht</h2>
         <p>Wenn du der Meinung bist, dass die Verarbeitung deiner Daten gegen die DSGVO verstößt, hast du das Recht, dich bei der dänischen Datenschutzbehörde zu beschweren:</p>
-        <p>
+        <address class="kw-address">
           Datatilsynet<br>
           Carl Jacobsens Vej 35<br>
           2500 Valby, Dänemark<br>
           Telefon: <a href="tel:+4533192700">+45 33 19 27 00</a><br>
           Website: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">datatilsynet.dk</a>
-        </p>
+        </address>
       </article>
 
       <!-- EN -->
-      <article class="kw-legal-content" id="content-en" lang="en" style="display:none;">
+      <article class="kw-legal-content" id="content-en" lang="en" hidden>
         <h1>Privacy Policy</h1>
         <p class="kw-legal-subtitle">Last updated: February 2026</p>
 
         <h2>1. Data controller</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12, 6470 Lysabild, Denmark<br>
-          CVR: 46109562<br>
+          CVR: 46109562
+        </address>
+        <p>
           Email: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
           Phone: <a href="tel:+4917681928820">+49 176 81928820</a>
         </p>
@@ -189,26 +196,28 @@
 
         <h2>10. Right to complain</h2>
         <p>If you believe that the processing of your data violates the GDPR, you have the right to lodge a complaint with the Danish Data Protection Authority:</p>
-        <p>
+        <address class="kw-address">
           Datatilsynet<br>
           Carl Jacobsens Vej 35<br>
           2500 Valby, Denmark<br>
           Phone: <a href="tel:+4533192700">+45 33 19 27 00</a><br>
           Website: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">datatilsynet.dk</a>
-        </p>
+        </address>
       </article>
 
       <!-- DA -->
-      <article class="kw-legal-content" id="content-da" lang="da" style="display:none;">
+      <article class="kw-legal-content" id="content-da" lang="da" hidden>
         <h1>Privatlivspolitik</h1>
         <p class="kw-legal-subtitle">Sidst opdateret: februar 2026</p>
 
         <h2>1. Dataansvarlig</h2>
-        <p>
+        <address class="kw-address">
           Kreativgården Sydals<br>
           Adrienne Siepert<br>
           Nedervej 12, 6470 Lysabild, Danmark<br>
-          CVR: 46109562<br>
+          CVR: 46109562
+        </address>
+        <p>
           E-mail: <a href="mailto:hallo@kreativ.schule">hallo@kreativ.schule</a><br>
           Telefon: <a href="tel:+4917681928820">+49 176 81928820</a>
         </p>
@@ -269,57 +278,29 @@
 
         <h2>10. Klageret</h2>
         <p>Hvis du mener, at behandlingen af dine data overtræder GDPR, har du ret til at indgive en klage til Datatilsynet:</p>
-        <p>
+        <address class="kw-address">
           Datatilsynet<br>
           Carl Jacobsens Vej 35<br>
           2500 Valby, Danmark<br>
           Telefon: <a href="tel:+4533192700">+45 33 19 27 00</a><br>
           Hjemmeside: <a href="https://www.datatilsynet.dk" target="_blank" rel="noopener noreferrer">datatilsynet.dk</a>
-        </p>
+        </address>
       </article>
 
     </div>
   </main>
 
-  <footer class="kw-footer">
+  <footer class="kw-footer" role="contentinfo">
     <div class="kw-container">
       <div class="kw-footer-bottom">
         <p>&copy; <span class="js-year"></span> Kreativgården Sydals.</p>
-        <p><a href="index.html" data-i18n-back>Zurück zur Startseite</a></p>
+        <p><a href="index.html" data-i18n-back aria-label="Zurück zur Startseite">Zurück zur Startseite</a></p>
       </div>
     </div>
   </footer>
 
 </div>
 
-<script>
-(function () {
-  var backLabels = { de: 'Zurück zur Startseite', en: 'Back to homepage', da: 'Tilbage til forsiden' };
-  var currentLang = localStorage.getItem('kreativwerkstatt_lang') || 'de';
-
-  function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem('kreativwerkstatt_lang', lang);
-    document.documentElement.lang = lang;
-    ['de', 'en', 'da'].forEach(function (l) {
-      var el = document.getElementById('content-' + l);
-      if (el) el.style.display = l === lang ? '' : 'none';
-    });
-    document.querySelectorAll('.kw-lang-btn').forEach(function (btn) {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-    });
-    var backLink = document.querySelector('[data-i18n-back]');
-    if (backLink) backLink.textContent = backLabels[lang];
-  }
-
-  document.querySelectorAll('.kw-lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { setLang(this.getAttribute('data-lang')); });
-  });
-
-  document.querySelectorAll('.js-year').forEach(function (el) { el.textContent = new Date().getFullYear(); });
-
-  setLang(currentLang);
-})();
-</script>
+<script src="legal.js"></script>
 </body>
 </html>

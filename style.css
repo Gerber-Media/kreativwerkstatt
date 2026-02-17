@@ -969,6 +969,57 @@ a[target="_blank"]::after {
   border: 1px solid var(--kw-border);
 }
 
+/* Map consent placeholder (2-click GDPR) */
+.kw-map-consent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: var(--kw-warm-alt);
+  border-radius: 12px;
+  border: 1px solid var(--kw-border);
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.kw-map-consent-inner {
+  max-width: 400px;
+}
+
+.kw-map-consent-inner svg {
+  color: var(--kw-text-ter);
+  margin-bottom: 16px;
+}
+
+.kw-map-consent-title {
+  font-family: var(--kw-font-playful);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--kw-text);
+  margin-bottom: 8px;
+}
+
+.kw-map-consent-text {
+  font-size: 14px;
+  color: var(--kw-text-sec);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.kw-map-consent-btn {
+  margin-bottom: 12px;
+}
+
+.kw-map-consent-link {
+  display: block;
+  font-size: 13px;
+  color: var(--kw-text-ter);
+}
+
+.kw-map-consent-link:hover {
+  color: var(--kw-accent);
+}
+
 /* ---- Footer ---- */
 .kw-footer {
   padding: 64px 0 32px;

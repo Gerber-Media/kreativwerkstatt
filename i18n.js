@@ -51,6 +51,10 @@
       'footer.imprint': 'Impressum',
       'footer.rights': 'Alle Rechte vorbehalten.',
       'footer.cvr': 'CVR',
+      'map.title': 'Standort anzeigen',
+      'map.text': 'Beim Laden der Karte werden Daten an Google Maps (USA) übertragen.',
+      'map.button': 'Karte laden',
+      'map.link': 'Oder direkt in Google Maps öffnen',
       'langNote': '',
       'heroImg.alt': 'Kreatives Kunstwerk aus der Werkstatt',
       'aboutImg.alt': 'Geometrischer Fuchs aus Holzstäbchen'
@@ -102,6 +106,10 @@
       'footer.imprint': 'Imprint',
       'footer.rights': 'All rights reserved.',
       'footer.cvr': 'CVR',
+      'map.title': 'Show location',
+      'map.text': 'Loading the map will transmit data to Google Maps (USA).',
+      'map.button': 'Load map',
+      'map.link': 'Or open directly in Google Maps',
       'langNote': '',
       'heroImg.alt': 'Creative artwork from the workshop',
       'aboutImg.alt': 'Geometric fox made from wooden sticks'
@@ -153,6 +161,10 @@
       'footer.imprint': 'Kolofon',
       'footer.rights': 'Alle rettigheder forbeholdes.',
       'footer.cvr': 'CVR',
+      'map.title': 'Vis placering',
+      'map.text': 'Når kortet indlæses, overføres data til Google Maps (USA).',
+      'map.button': 'Indlæs kort',
+      'map.link': 'Eller åbn direkte i Google Maps',
       'langNote': 'Bemærk venligst: Vi taler desværre ikke dansk. Du er velkommen til at kontakte os på tysk eller engelsk — vi finder altid en løsning!',
       'heroImg.alt': 'Kreativt kunstværk fra værkstedet',
       'aboutImg.alt': 'Geometrisk ræv lavet af træpinde'
@@ -254,6 +266,27 @@
     // Close menu when clicking anchor links
     navLinks.querySelectorAll('a[href^="#"]').forEach(function (link) {
       link.addEventListener('click', closeMenu);
+    });
+  }
+
+  // Google Maps consent (2-click GDPR)
+  var mapConsentBtn = document.getElementById('mapConsentBtn');
+  var mapEmbed = document.getElementById('mapEmbed');
+  if (mapConsentBtn && mapEmbed) {
+    mapConsentBtn.addEventListener('click', function () {
+      var consent = document.getElementById('mapConsent');
+      if (consent) consent.remove();
+      var iframe = document.createElement('iframe');
+      iframe.title = 'Kreativgården Sydals — Nedervej 12, 6470 Lysabild';
+      iframe.src = 'https://maps.google.com/maps?q=Nedervej+12,+6470+Lysabild,+Denmark&t=&z=15&ie=UTF8&iwloc=&output=embed';
+      iframe.width = '100%';
+      iframe.height = '300';
+      iframe.style.border = '0';
+      iframe.style.borderRadius = '8px';
+      iframe.allowFullscreen = true;
+      iframe.loading = 'eager';
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      mapEmbed.appendChild(iframe);
     });
   }
 
